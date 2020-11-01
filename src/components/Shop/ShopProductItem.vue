@@ -4,31 +4,35 @@
       <img style="height:150px;" :src="product.img" />
     </div>
     <div>
-      <h3>{{ product.title }}</h3>      
-      <hr>
+      <h3>{{ product.title }}</h3>
+      <hr />
     </div>
     <div>
       <p>{{ product.description }}</p>
     </div>
     <div>
       <span>{{ product.price }} €</span>
-      <button @click="addProductToCart" class="btn btn-primary btn-sm float-right">Commander</button>
+      <button
+        @click="addProductToCart"
+        class="btn btn-primary btn-sm float-right"
+      >
+        Commander
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from '../../main';
+import { eventBus } from "../../main";
 
 export default {
-  props: ['product'],
+  props: ["product"],
   methods: {
     addProductToCart() {
-      eventBus.addProductToCart({ ...this.product })
-    }
-  }
-}
-
+      eventBus.addProductToCart({ ...this.product });
+    },
+  },
+};
 </script>
 
 <style>
@@ -39,5 +43,4 @@ export default {
 p {
   font-size: 12px;
 }
-
 </style>

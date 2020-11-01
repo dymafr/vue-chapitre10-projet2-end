@@ -3,28 +3,25 @@
 </template>
 
 <script>
-  import ShopProductsList from './ShopProductsList.vue';
-  import { eventBus } from '../../main';
+import ShopProductsList from "./ShopProductsList.vue";
+import { eventBus } from "../../main";
 
 export default {
   components: {
-    ShopProductsList
+    ShopProductsList,
   },
   data() {
     return {
-      products: []
-    }
+      products: [],
+    };
   },
   created() {
     this.products = eventBus.products;
-    eventBus.$on('update:products', (products) => {
+    eventBus.emitter.on("update:products", (products) => {
       this.products = products;
-    })
-  }
-}
-
+    });
+  },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
